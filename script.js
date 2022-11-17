@@ -43,6 +43,12 @@ function newQuote() {
     if (index === "He") {
       return "She";
     }
+    if (index === "his") {
+      return "hers";
+    }
+    if (index === "His") {
+      return "Hers";
+    }
     if (index === "him") {
       return "her";
     }
