@@ -37,11 +37,17 @@ function newQuote() {
     if (index === "he") {
       return "she";
     }
+    if (index === "he.") {
+      return "she.";
+    }
     if (index === "He") {
       return "She";
     }
     if (index === "him") {
       return "her";
+    }
+    if (index === "him.") {
+      return "her.";
     }
     if (index === "Him") {
       return "Her";
@@ -54,6 +60,9 @@ function newQuote() {
     }
     if (index === "man") {
       return "woman";
+    }
+    if (index === "man.") {
+      return "woman.";
     }
     if (index === "Man") {
       return "Woman";
