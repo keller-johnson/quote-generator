@@ -55,6 +55,9 @@ function newQuote() {
     if (index === "men") {
       return "women";
     }
+    if (index === "men,") {
+      return "women,";
+    }
     if (index === "Men") {
       return "Women";
     }
