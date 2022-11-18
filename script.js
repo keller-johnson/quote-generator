@@ -5,6 +5,7 @@ const authorText = document.getElementById("author");
 const twitterBtn = document.getElementById("twitter");
 const newQuoteBtn = document.getElementById("new-quote");
 const loader = document.getElementById("loader");
+const classLongQuote = document.getElementsByClassName("long-quote");
 
 let apiQuotes = [];
 
@@ -22,6 +23,7 @@ function complete() {
 
 //Show new quote
 function newQuote() {
+  //show spinner as everything is loading
   loading();
   //Pick a random from apiQuotes array
   const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
@@ -32,7 +34,6 @@ function newQuote() {
   //because if we tried to do .replace or .replaceAll it would replace parts of substrings as well
   let quoteArray = quote.text.split(" ");
   // now we are making a if statement to turn these generic terms into women specific terms
-  console.log(quoteArray);
   let newArrayQuote = quoteArray.map((index) => {
     if (index === "he") {
       return "she";
@@ -88,8 +89,6 @@ function newQuote() {
   //turning the newArrayQuote back into string
   let stringQuote = newArrayQuote.join(" ");
 
-  console.log(stringQuote);
-
   //Check if Author field is blank and replace it with unknown
   if (!quote.author) {
     authorText.textContent = "Unknown";
@@ -97,12 +96,8 @@ function newQuote() {
     authorText.textContent = quote.author;
   }
   // Check quote length to determine the styling
-  if (stringQuote.length > 120) {
-    quoteText.classList.add("long-quote");
-  } else {
-    quoteText.classList.remove("long-quote");
-  }
 
+  quoteText.classList.toggle("long-quote", stringQuote.length > 120);
   //Set Quote, Hide Loader
   complete();
 
